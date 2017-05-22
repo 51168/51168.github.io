@@ -249,7 +249,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="51168.github.com/2017/05/22/整套web服务搭建/">
+    <link itemprop="mainEntityOfPage" href="51168.github.com/2017/05/22/2017-05-22-整套web服务搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="咕噜">
@@ -271,7 +271,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/22/整套web服务搭建/" itemprop="url">
+                <a class="post-title-link" href="/2017/05/22/2017-05-22-整套web服务搭建/" itemprop="url">
                   整套web环境搭建
                 </a>
               
@@ -370,7 +370,7 @@
 <li>在本机生成密钥执行以下命令</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -b 4096</div></pre></td></tr></table></figure>
-<p><img src="media/14951876768306/14952638863498.jpg" alt=""><br>    回车将要求你填入一个key密码；按提示执行之后将生成私钥test、公钥test.pub文件</p>
+<p><img src="/images/02.jpg" alt="出现如图"><br>    回车将要求你填入一个key密码；按提示执行之后将生成私钥test、公钥test.pub文件</p>
 <ul>
 <li>将生成好test.pub传到服务器</li>
 </ul>
@@ -381,7 +381,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#更改/etc/ssh/sshd_config内容</div><div class="line">$ vi /etc/ssh/sshd_config #编辑以下内容</div><div class="line">	Port 1688 #把端口设为1688</div><div class="line">	RSAAuthentication yes #把#去掉</div><div class="line">	PubkeyAuthentication yes 把#去掉</div><div class="line">	PasswordAuthentication no #设置为no</div><div class="line">	PermitRootLogin no #如果不想让root登录改为no，note无密钥测试登录成功再修改此项。</div><div class="line"></div><div class="line">$ service sshd restart #重启sshd服务</div></pre></td></tr></table></figure>
 <h2 id="进行ssh无密钥连接服务器"><a href="#进行ssh无密钥连接服务器" class="headerlink" title="进行ssh无密钥连接服务器"></a>进行ssh无密钥连接服务器</h2><p>本机用Sublime打开 sbul ~/.ssh/config 尾部添加以下内容:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Host sexy #别名</div><div class="line">    HostName ip #ip地址</div><div class="line">    Port 1688 #端口；上边更改过来的端口</div><div class="line">    User sexbody #登录用户名</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/test #上边创建的test私钥文件</div></pre></td></tr></table></figure>
-<p>iTerm终端执行ssh sexy #上边config文件添加的别名；将出现以下信息。输入刚才创建ssh-keygen时的密码。连接成功<br><img src="media/14951876768306/14952674484778.jpg" alt=""></p>
+<p>iTerm终端执行ssh sexy #上边config文件添加的别名；将出现以下信息。输入刚才创建ssh-keygen时的密码。连接成功<br><img src="/images/03.jpg" alt="出现如图"></p>
 <h2 id="使用gitolite创建git服务仓库"><a href="#使用gitolite创建git服务仓库" class="headerlink" title="使用gitolite创建git服务仓库"></a>使用gitolite创建git服务仓库</h2><ul>
 <li>根据上边操作生成名为git的ssh-key，然后上传到服务器/tmp目录备用</li>
 </ul>
@@ -446,7 +446,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="51168.github.com/2017/04/07/创建subline-text-终端命令与subline-text-build-运行php7或者python3代码/">
+    <link itemprop="mainEntityOfPage" href="51168.github.com/2017/04/07/2017-04-07-创建subline-text-终端命令与subline-text-build-运行php7或者python3代码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="咕噜">
@@ -468,7 +468,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/07/创建subline-text-终端命令与subline-text-build-运行php7或者python3代码/" itemprop="url">
+                <a class="post-title-link" href="/2017/04/07/2017-04-07-创建subline-text-终端命令与subline-text-build-运行php7或者python3代码/" itemprop="url">
                   MAC创建subline text 终端命令与subline text build 运行php7或者python3环境
                 </a>
               
@@ -861,7 +861,7 @@ jdk-8u66-linux-x64.rpm 是你下载回来的rpm名称
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="51168.github.com/2015/12/30/mac brew install php-redis error/">
+    <link itemprop="mainEntityOfPage" href="51168.github.com/2015/12/30/2015-12-30-mac brew install php-redis error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="咕噜">
@@ -883,7 +883,7 @@ jdk-8u66-linux-x64.rpm 是你下载回来的rpm名称
             
               
                 
-                <a class="post-title-link" href="/2015/12/30/mac brew install php-redis error/" itemprop="url">
+                <a class="post-title-link" href="/2015/12/30/2015-12-30-mac brew install php-redis error/" itemprop="url">
                   mac brew install php-redis error
                 </a>
               
@@ -989,7 +989,7 @@ jdk-8u66-linux-x64.rpm 是你下载回来的rpm名称
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="51168.github.com/2015/12/08/Yii2的日期插件(Daterangepicker)实用版/">
+    <link itemprop="mainEntityOfPage" href="51168.github.com/2015/12/08/2015-12-08-Yii2的日期插件(Daterangepicker)实用版/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="咕噜">
@@ -1011,7 +1011,7 @@ jdk-8u66-linux-x64.rpm 是你下载回来的rpm名称
             
               
                 
-                <a class="post-title-link" href="/2015/12/08/Yii2的日期插件(Daterangepicker)实用版/" itemprop="url">
+                <a class="post-title-link" href="/2015/12/08/2015-12-08-Yii2的日期插件(Daterangepicker)实用版/" itemprop="url">
                   Yii2的日期插件(Daterangepicker)实用版
                 </a>
               
@@ -1118,7 +1118,7 @@ jdk-8u66-linux-x64.rpm 是你下载回来的rpm名称
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="51168.github.com/2015/11/24/introducing-php5-dot-4/">
+    <link itemprop="mainEntityOfPage" href="51168.github.com/2015/11/24/2015-11-24-introducing-php5-dot-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="咕噜">
@@ -1140,7 +1140,7 @@ jdk-8u66-linux-x64.rpm 是你下载回来的rpm名称
             
               
                 
-                <a class="post-title-link" href="/2015/11/24/introducing-php5-dot-4/" itemprop="url">
+                <a class="post-title-link" href="/2015/11/24/2015-11-24-introducing-php5-dot-4/" itemprop="url">
                   Introducing-PHP5.4
                 </a>
               
