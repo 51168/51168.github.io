@@ -1,0 +1,692 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="tools," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="subline text command 运行并配置php7与python3运行环境终端命令启动subline text
+打开终端或者iTerm 运行以下代码
+
+12345➜ ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl #创建软连接 -&amp;gt; /usr/loca">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MAC创建subline text 终端命令与subline text build 运行php7或者python3环境">
+<meta property="og:url" content="51168.github.com/2017/04/07/创建subline-text-终端命令与subline-text-build-运行php7或者python3代码/index.html">
+<meta property="og:site_name" content="咕噜">
+<meta property="og:description" content="subline text command 运行并配置php7与python3运行环境终端命令启动subline text
+打开终端或者iTerm 运行以下代码
+
+12345➜ ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl #创建软连接 -&amp;gt; /usr/loca">
+<meta property="og:image" content="51168.github.com/images/01.png">
+<meta property="og:updated_time" content="2017-04-07T15:41:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MAC创建subline text 终端命令与subline text build 运行php7或者python3环境">
+<meta name="twitter:description" content="subline text command 运行并配置php7与python3运行环境终端命令启动subline text
+打开终端或者iTerm 运行以下代码
+
+12345➜ ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl #创建软连接 -&amp;gt; /usr/loca">
+<meta name="twitter:image" content="51168.github.com/images/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="51168.github.com/2017/04/07/创建subline-text-终端命令与subline-text-build-运行php7或者python3代码/"/>
+
+
+
+
+
+  <title> MAC创建subline text 终端命令与subline text build 运行php7或者python3环境 | 咕噜 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">咕噜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">In Life Like Code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="51168.github.com/2017/04/07/创建subline-text-终端命令与subline-text-build-运行php7或者python3代码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="咕噜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咕噜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                MAC创建subline text 终端命令与subline text build 运行php7或者python3环境
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-07T22:56:54+08:00">
+                2017-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="subline-text-command-运行并配置php7与python3运行环境"><a href="#subline-text-command-运行并配置php7与python3运行环境" class="headerlink" title="subline text command 运行并配置php7与python3运行环境"></a>subline text command 运行并配置php7与python3运行环境</h2><h3 id="终端命令启动subline-text"><a href="#终端命令启动subline-text" class="headerlink" title="终端命令启动subline text"></a>终端命令启动subline text</h3><ol>
+<li>打开终端或者<a href="http://www.iterm2.com/" target="_blank" rel="external">iTerm</a> 运行以下代码</li>
+</ol>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">➜ ln <span class="_">-s</span> /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/<span class="built_in">local</span>/bin/subl <span class="comment">#创建软连接 -&gt; /usr/local/bin/任意名称 </span></div><div class="line">➜ vi ~/.bash_profile <span class="comment">#输入以下内容结尾</span></div><div class="line">➜ <span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:~/usr/<span class="built_in">local</span>/bin </div><div class="line">➜ <span class="built_in">source</span> ~/.bash_profile <span class="comment">#生效配置</span></div><div class="line">➜ subl filename <span class="comment">#能启动sublime 则配置成功,good job.</span></div></pre></td></tr></table></figure>
+<h3 id="配置php7-、python3-build环境在-subline-text"><a href="#配置php7-、python3-build环境在-subline-text" class="headerlink" title="配置php7 、python3 build环境在 subline text"></a>配置php7 、python3 build环境在 subline text</h3><h4 id="php7"><a href="#php7" class="headerlink" title="php7"></a>php7</h4><ol>
+<li>在sublime text 菜单栏中点击Tools-&gt;Build System-&gt;New Build System</li>
+<li><p>复制以下内容覆盖到上边新打开的文件中</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"cmd"</span>: [<span class="string">"/usr/local/opt/php71/bin/php"</span>, <span class="string">"<span class="variable">$file</span>"</span>], <span class="comment"># 可使用which php 查看PHP7具体命令在哪里</span></div><div class="line">    <span class="string">"file_regex"</span>: <span class="string">"php$"</span>,</div><div class="line">    <span class="string">"selector"</span>: <span class="string">"source.php"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>然后直接弹出目录中保存并命名为php.sublime-build</p>
+</li>
+<li>打开Tools-&gt;Build System-&gt;New <img src="/images/01.png" alt="出现如图"><br>5.打开一个php文件，然后按command键+B运行PHP代码<h4 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h4></li>
+<li>配置内容如下，并重复以上步骤即可<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"auto_complete_triggers"</span>:</div><div class="line">	[</div><div class="line">		&#123;</div><div class="line">			<span class="string">"characters"</span>: <span class="string">"."</span>,</div><div class="line">			<span class="string">"selector"</span>: <span class="string">"source.python - string - constant.numeric"</span></div><div class="line">		&#125;</div><div class="line">	],</div><div class="line">	<span class="string">"extensions"</span>:</div><div class="line">	[</div><div class="line">		<span class="string">"py"</span></div><div class="line">	]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="具体内容请参考-sublime-text官方文档"><a href="#具体内容请参考-sublime-text官方文档" class="headerlink" title="具体内容请参考 sublime text官方文档"></a>具体内容请参考 sublime text<a href="http://docs.sublimetext.info/en/latest/file_processing/build_systems.html" target="_blank" rel="external">官方文档</a></h4>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tools/" rel="tag"># tools</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/17/2016-08-17-zhen-ji-an-zhuang-centos7yu-scrapypa-chong-huan-jing/" rel="next" title="真机安装centos7与scrapy爬虫环境">
+                <i class="fa fa-chevron-left"></i> 真机安装centos7与scrapy爬虫环境
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="咕噜" />
+          <p class="site-author-name" itemprop="name">咕噜</p>
+           
+              <p class="site-description motion-element" itemprop="description">php教程,yii教程,python教程</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#subline-text-command-运行并配置php7与python3运行环境"><span class="nav-number">1.</span> <span class="nav-text">subline text command 运行并配置php7与python3运行环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#终端命令启动subline-text"><span class="nav-number">1.1.</span> <span class="nav-text">终端命令启动subline text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置php7-、python3-build环境在-subline-text"><span class="nav-number">1.2.</span> <span class="nav-text">配置php7 、python3 build环境在 subline text</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#php7"><span class="nav-number">1.2.1.</span> <span class="nav-text">php7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python3"><span class="nav-number">1.2.2.</span> <span class="nav-text">python3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体内容请参考-sublime-text官方文档"><span class="nav-number">1.2.3.</span> <span class="nav-text">具体内容请参考 sublime text官方文档</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">咕噜</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
