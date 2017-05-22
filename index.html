@@ -249,6 +249,203 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="51168.github.com/2017/05/22/整套web服务搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="咕噜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咕噜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/22/整套web服务搭建/" itemprop="url">
+                  整套web环境搭建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-22T17:05:06+08:00">
+                2017-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="install-php5-3"><a href="#install-php5-3" class="headerlink" title="install php5.3"></a>install php5.3</h2><ul>
+<li>安装运行依赖包&amp;下载php5.3 tar包</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ yum -y install epel-release &amp;&amp; yum -y groupinstall &apos;Development Tools&apos;</div><div class="line">$ yum -y install libxml2-devel libcurl-devel libjpeg-devel libpng-devel freetype-devel libmcrypt-devel openssl-devel libtool-ltdl-devel</div><div class="line">$ cd ~/tmp</div><div class="line">$ wget http://cn2.php.net/distributions/php-5.3.29.tar.gz</div><div class="line">$ tar zxvf php-5.3.29.tar.gz &amp;&amp; cd php-5.3.29</div></pre></td></tr></table></figure>
+<ul>
+<li>配置资源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./configure --prefix=/opt/php-5.3.29 --with-config-file-path=/opt/php-5.3.29/etc --enable-fpm --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-iconv-dir --with-zlib --with-libxml-dir --enable-xml --with-curl --with-openssl --with-mhash --with-xmlrpc --with-gettext --with-freetype-dir --with-jpeg-dir --with-png-dir --with-gd --enable-gd-native-ttf --with-mcrypt --enable-bcmath --enable-shmop --enable-exif --enable-sysvsem --enable-mbregex --enable-mbstring --enable-sockets --enable-ftp --enable-zip --enable-soap</div></pre></td></tr></table></figure>
+<ul>
+<li>编译&amp;安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<ul>
+<li>设置相关配置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ cp php.ini-production /opt/php-5.3.29/etc/php.ini</div><div class="line">$ cp /opt/php-5.3.29/etc/php-fpm.conf.default /opt/php-5.3.29/etc/php-fpm.conf</div><div class="line">$ cp sapi/fpm/init.d.php-fpm /etc/init.d/php53-fpm</div><div class="line">$ chmod 755 /etc/init.d/php53-fpm</div><div class="line">$ chkconfig php53-fpm on</div><div class="line">$ /etc/init.d/php53-fpm start</div></pre></td></tr></table></figure>
+<h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a><a href="http://nginx.org/en/linux_packages.html#stable" target="_blank" rel="external">安装nginx</a></h2><ul>
+<li>安装nginx1.12.0版本所以要配置最新的yum源；接下来就是安装运行了。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/yum.repos.d/nginx.repo</div><div class="line">	[nginx]</div><div class="line">	name=nginx repo</div><div class="line">	baseurl=http://nginx.org/packages/centos/7/$basearch/</div><div class="line">	gpgcheck=0</div><div class="line">	enabled=1</div><div class="line">$ yum -y install nginx</div></pre></td></tr></table></figure>
+<h2 id="安装Percona-Server-5-7"><a href="#安装Percona-Server-5-7" class="headerlink" title="安装Percona Server 5.7"></a><a href="https://www.percona.com/doc/percona-server/LATEST/installation/yum_repo.html" target="_blank" rel="external">安装Percona Server 5.7</a></h2><ul>
+<li>安装percona仓库源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install http://www.percona.com/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm</div></pre></td></tr></table></figure>
+<ul>
+<li>检验安装是否成功||直接安装服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ yum list | grep percona</div><div class="line">$ yum install -y Percona-Server-server-57</div><div class="line">$ service mysql start</div></pre></td></tr></table></figure>
+<ul>
+<li>NOTE要点</li>
+</ul>
+<ol>
+<li>临时密码存放在/var/log/mysqld.log，执行以下便得到</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /var/log/mysqld.log | grep &quot;temporary password&quot;</div></pre></td></tr></table></figure>
+<ol>
+<li>必须更改root临时密码，执行以下&amp;&amp;按照提示操作更改密码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /usr/bin/mysql_secure_installation</div></pre></td></tr></table></figure>
+<h2 id="服务器关闭密码登录-amp-amp-配置ssh"><a href="#服务器关闭密码登录-amp-amp-配置ssh" class="headerlink" title="服务器关闭密码登录&amp;&amp;配置ssh"></a>服务器关闭密码登录&amp;&amp;配置ssh</h2><h3 id="创建用户并设置。分配拥有sudo用户组"><a href="#创建用户并设置。分配拥有sudo用户组" class="headerlink" title="创建用户并设置。分配拥有sudo用户组"></a>创建用户并设置。分配拥有sudo用户组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ useradd example_user &amp;&amp; passwd example_user</div><div class="line">$ usermod -aG wheel example_user</div><div class="line"></div><div class="line">#创建授权目录</div><div class="line">$ mkdir ~/.ssh </div><div class="line">$ echo&gt;~/.ssh/authorized_keys</div><div class="line">$ chmod 700 ~/.ssh</div><div class="line">$ chmod 600 ~/.ssh/*</div></pre></td></tr></table></figure>
+<h3 id="执行-amp-配置ssh相关操作"><a href="#执行-amp-配置ssh相关操作" class="headerlink" title="执行&amp;配置ssh相关操作"></a>执行&amp;配置ssh相关操作</h3><ul>
+<li>在本机生成密钥执行以下命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -b 4096</div></pre></td></tr></table></figure>
+<p><img src="media/14951876768306/14952638863498.jpg" alt=""><br>    回车将要求你填入一个key密码；按提示执行之后将生成私钥test、公钥test.pub文件</p>
+<ul>
+<li>将生成好test.pub传到服务器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp ~/.ssh/test.pub ssh user@ip:~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+<ul>
+<li>登录到服务器编辑sshd_config文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#更改/etc/ssh/sshd_config内容</div><div class="line">$ vi /etc/ssh/sshd_config #编辑以下内容</div><div class="line">	Port 1688 #把端口设为1688</div><div class="line">	RSAAuthentication yes #把#去掉</div><div class="line">	PubkeyAuthentication yes 把#去掉</div><div class="line">	PasswordAuthentication no #设置为no</div><div class="line">	PermitRootLogin no #如果不想让root登录改为no，note无密钥测试登录成功再修改此项。</div><div class="line"></div><div class="line">$ service sshd restart #重启sshd服务</div></pre></td></tr></table></figure>
+<h2 id="进行ssh无密钥连接服务器"><a href="#进行ssh无密钥连接服务器" class="headerlink" title="进行ssh无密钥连接服务器"></a>进行ssh无密钥连接服务器</h2><p>本机用Sublime打开 sbul ~/.ssh/config 尾部添加以下内容:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Host sexy #别名</div><div class="line">    HostName ip #ip地址</div><div class="line">    Port 1688 #端口；上边更改过来的端口</div><div class="line">    User sexbody #登录用户名</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/test #上边创建的test私钥文件</div></pre></td></tr></table></figure>
+<p>iTerm终端执行ssh sexy #上边config文件添加的别名；将出现以下信息。输入刚才创建ssh-keygen时的密码。连接成功<br><img src="media/14951876768306/14952674484778.jpg" alt=""></p>
+<h2 id="使用gitolite创建git服务仓库"><a href="#使用gitolite创建git服务仓库" class="headerlink" title="使用gitolite创建git服务仓库"></a>使用gitolite创建git服务仓库</h2><ul>
+<li>根据上边操作生成名为git的ssh-key，然后上传到服务器/tmp目录备用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp git.pub ssh sexy:/tmp</div></pre></td></tr></table></figure>
+<ul>
+<li>创建只具有读写的系统账号</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ useradd --system --shel /bin/bash --create-home git</div><div class="line">$ usermod -u 600 git</div><div class="line">$ cp /tmp/git.pub /home/git/ #把公钥复制git用户目录备用</div></pre></td></tr></table></figure>
+<ul>
+<li>切换到刚创建git用户&amp;&amp;创建bin目录</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ su - git</div><div class="line">$ pwd #或者echo $HOME; 校验是不是已经切到git用户目录</div><div class="line">$ mkdir -p ~/bin</div></pre></td></tr></table></figure>
+<ul>
+<li>克隆gitolite源码&amp;&amp;安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone git://github.com/sitaramc/gitolite</div><div class="line">gitolite/install -ln ~/bin         </div><div class="line">gitolite setup -pk git.pub #刚才复制到此目录的公钥</div></pre></td></tr></table></figure>
+<ul>
+<li>本地配置.ssh/config并进行别名连接配置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git:gitolite-admin #克隆权限管理与仓库管理回来</div></pre></td></tr></table></figure>
+<p>至此整个服务已经搭建好。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="51168.github.com/2017/04/07/创建subline-text-终端命令与subline-text-build-运行php7或者python3代码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1078,7 +1275,7 @@ jdk-8u66-linux-x64.rpm 是你下载回来的rpm名称
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1091,7 +1288,7 @@ jdk-8u66-linux-x64.rpm 是你下载回来的rpm名称
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
